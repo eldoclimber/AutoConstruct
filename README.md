@@ -63,3 +63,53 @@ The goal is to design a 3D CAD program using modern OpenGL 4.0, GLFW, and ImGui.
 9. **Future Enhancements:** After the MVP is complete, begin working on the future enhancements as outlined above.
 
 Remember to follow good software development practices throughout, such as regular testing, version control, and writing clear, well-commented code.
+
+
+
+# Design Document for 3D CAD Application
+
+## Overview
+
+The purpose of this document is to outline the design for a 3D CAD application built using modern OpenGL, GLFW, and ImGui. The application will support a Windows primary platform, with macOS and Linux as secondary objectives. The CAD application will be created with a focus on creating a minimum viable product (MVP) first, with future enhancements to be built as additional features. 
+
+The chosen architecture for the software is a component-based architecture, which offers a balance between complexity and modularity.
+
+## Software Architecture
+
+The CAD application will be divided into the following major classes:
+
+1. **Application**: The main entry point of the application. It manages the lifecycle of the application and holds instances of other major components.
+
+2. **Window**: This class is responsible for creating and managing the window where 3D objects are rendered. It also handles window-specific inputs and events.
+
+3. **Renderer**: This class is responsible for rendering the scene. It takes a Scene and renders it onto the window.
+
+4. **Scene**: This class contains all the 3D models (or entities) that need to be rendered. It also manages the camera, lighting, and other aspects of the scene.
+
+5. **Entity**: An entity represents a 3D model in the scene. It could be composed of various components like MeshComponent, MaterialComponent, TransformComponent, etc.
+
+6. **Components**: These classes are attached to entities to give them properties or behaviors. Examples might be MeshComponent (for the shape of the model), MaterialComponent (for the appearance), TransformComponent (for position, rotation, and scale), and so on.
+
+## User Interface
+
+The User Interface will be implemented using ImGui and will include multiple panes. A primary 3D view will be featured along with secondary panes that include an objects list, properties list, and potentially other windows.
+
+## I/O Operations
+
+The application will support importing of 3D models from `.obj` files. In addition, it will include a custom file format that stores data similar to `.obj`, but includes application-specific information in the header.
+
+## Error Handling
+
+The application will log errors and exit the program if basic window and OpenGL contexts are unable to be created. For smaller errors, the program should continue running if possible.
+
+## Multithreading
+
+The application will make use of multithreading for performance optimization.
+
+## Future Enhancements
+
+Once the MVP has been completed, further enhancements may include enhanced rendering capabilities, special shaders or post-processing effects, and a web-based version of the CAD application using WebGL.
+
+## Conclusion
+
+This design document provides an outline of the initial design for the 3D CAD application. It should be used as a guide during development and will be subject to change as new requirements or constraints are identified.
